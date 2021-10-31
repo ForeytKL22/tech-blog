@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Post, Comment } = require('../../models');
 
 // GET /api/users
 router.get('/', (req, res) => {
@@ -24,7 +24,7 @@ router.get('/:id', (req, res) => {
       include: [
         {
           model: Post,
-          attributes: ['id', 'title', 'post-body']
+          attributes: ['id', 'title', 'post_body']
         },
         {
           model: Comment,
@@ -62,6 +62,48 @@ router.post('/', (req, res) => {
     });
 });
 
+
+// route to log in
+router.post('/login', (req, res) => {
+  User.findOne({
+    where: {
+      username: req.body.username
+    }
+  })
+  .then(dbUserData => {
+    if (!dbUserData) {
+      res.status(400).json({ message: 'No account found with that username' });
+      return;
+    }
+
+    // verify user
+    const validPassword = dbUserData.checkPassword(req.body.password);
+    if (!validPassword) {
+      res.status(400).json({ message: 'Incorrect password!' });
+      return;
+    }
+
+      req.session.save(() => {
+      req.session.username = dbUserData.id;
+      req.session.loggedIn = true;
+
+    res.json({ user: dbUserData, message: 'You are now logged in!' });
+    });
+  });
+});
+
+
+// log out
+router.post('/logout', (req, res) => {
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  }
+  else {
+    res.status(404).end();
+  }
+});
 
 
 module.exports = router;
