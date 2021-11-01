@@ -4,37 +4,37 @@ const postdata = [
   {
     title: 'Donec posuere metus vitae ipsum.',
     post_body: ';asodfaoshidfad',
-    username: 'alesmonde0'
+    user_id: 9
   },
   {
     title: 'Morbi non quam nec dui luctus rutrum.',
     post_body: ';asodfaoshidfad',
-    username: 'jwilloughway1'
+    user_id: 1
   },
   {
     title: 'Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue.',
     post_body: ';asodfaoshidfad',
-    username: 'djiri4'
+    user_id: 6
   },
   {
     title: 'Nunc purus.',
     post_body: ';asodfaoshidfad',
-    username: 'msprague5'
+    user_id: 7
   },
   {
     title: 'Pellentesque eget nunc.',
     post_body: ';asodfaoshidfad',
-    username: 'dstanmer3'
+    user_id: 2
   },
   {
     title: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
     post_body: ';asodfaoshidfad',
-    username: 'tpenniell7'
+    user_id: 4
   },
   {
     title: 'In hac habitasse platea dictumst.',
     post_body: ';asodfaoshidfad',
-    username: 'msabbins8'
+    user_id: 3
   }
 ];
 
