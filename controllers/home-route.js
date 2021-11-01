@@ -6,24 +6,20 @@ router.get('/', (req, res) => {
     console.log(req.session);
     console.log('======================');
     Post.findAll({
-      attributes: [
-        'id',
-        'post_body',
-        'title'
-      ],
       include: [
-        {
-          model: Comment,
-          attributes: ['id', 'comment_text'],
-          include: {
-            model: User,
-            attributes: ['username']
-          }
-        },
-        {
-          model: User,
-          attributes: ['username']
-        }
+        Comment, User
+        // {
+        //   model: Comment,
+        //   attributes: ['id', 'comment_text'],
+        //   include: {
+        //     model: User,
+        //     attributes: ['username']
+        //   }
+        // },
+        // {
+        //   model: User,
+        //   attributes: ['username']
+        // }
       ]
     })
       .then(dbPostData => {
