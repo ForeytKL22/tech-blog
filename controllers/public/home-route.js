@@ -1,1 +1,0 @@
-// home route (*, catch-all route)
