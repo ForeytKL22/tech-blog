@@ -54,7 +54,7 @@ router.get('/', (req, res) => {
       },
       attributes: [
         'id',
-        'body_body',
+        'post_body',
         'title'
       ],
       include: [
@@ -76,7 +76,7 @@ router.get('/', (req, res) => {
         if (!dbPostData) {
           res.status(404).json({ message: 'No post found with this id' });
           return;
-        }
+        } 
   
         // serialize the data
         const post = dbPostData.get({ plain: true });

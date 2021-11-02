@@ -7,7 +7,7 @@
   <title>Tech Blog</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"crossorigin="anonymous">
-  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="../stylesheets/style.css">
 </head>
 <body>
   
@@ -17,7 +17,12 @@
           <a href="/">Tech Blog</a>
         </h1>
         <nav>
+          {{#if loggedIn}}
+          <a href="/dashboard">Dashboard</a>
+          <button id="logout" class="btn-no-style">Logout</button>
+          {{else}}
           <a href="/login">Login</a>
+          {{/if}}
         </nav>
       </header>
       <main>
@@ -28,5 +33,6 @@
       </footer>
     </div>
 
+<script src="../stylesheets/javascript/logout.js"></script>
 </body>
 </html>
