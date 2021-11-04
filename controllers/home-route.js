@@ -3,7 +3,8 @@ const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', (req, res) => {
-    console.log(req.session);
+    // console.log(req.session);
+    console.log("hit home route")
     console.log('======================');
     Post.findAll({
       include: [
@@ -41,7 +42,6 @@ router.get('/', (req, res) => {
       res.redirect('/');
       return;
     }
-  
     res.render('login');
   });
 

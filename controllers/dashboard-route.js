@@ -4,15 +4,16 @@ const withAuth = require('../utils/auth');
 
 // get all posts for dashboard
 router.get('/', withAuth, (req, res) => {
-    console.log(req.session);
+    // console.log(req.session);
+    console.log("hit dashboard route")
     console.log('======================');
     Post.findAll({
         where: {
-            username: req.session.username
+            user_id: req.session.user_id
         },
         attributes: [
             'id',
-            'body',
+            'post_body',
             'title',
             'created_at'
         ],
@@ -25,10 +26,10 @@ router.get('/', withAuth, (req, res) => {
                     attributes: ['username']
                 }
             },
-            {
-                model: User,
-                attributes: ['username']
-            }
+            // {
+            //     model: User,
+            //     attributes: ['username']
+            // }
         ]
     })
         .then(dbPostData => {
