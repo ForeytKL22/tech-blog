@@ -1,20 +1,7 @@
 <ol>
     {{#each posts}}
     <li>
-        <article class="post">
-            <div class="title">
-                <div>
-                    <p>
-                        <a href="/post/{{id}}">{{title}}</a>
-                    </p>
-                </div>
-                <div class="meta">
-                    posted by {{user.username}} on {{format_date createdAt}}
-                    |
-                    <a href="/post/{{id}}">{{comments.length}} comment(s)</a>
-                </div>
-            </div>
-        </article>
+        {{> post-info}}
     </li>
     {{/each}}
 </ol>
