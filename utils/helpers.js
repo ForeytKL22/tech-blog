@@ -1,4 +1,3 @@
-
 module.exports = {
     format_date: date => {
       return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${new Date(
@@ -9,7 +8,7 @@ module.exports = {
       return url
         .replace('http://', '')
         .replace('https://', '')
-        .replace('www.', '')
+        .replace('www.', '')  
         .split('/')[0]
         .split('?')[0];
     },
