@@ -11,12 +11,6 @@ router.get('/', withAuth, (req, res) => {
         where: {
             user_id: req.session.user_id
         },
-        // attributes: [
-        //     'id',
-        //     'post_body',
-        //     'title',
-        //     'created_at'
-        // ],
         include: [
             Comment, User
         ]
@@ -39,12 +33,12 @@ router.get('/edit/:id', withAuth, (req, res) => {
             'id',
             'post_body',
             'title',
-            'created_at'
+            'createdAt'
         ],
         include: [
             {
                 model: Comment,
-                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'createdAt'],
                 include: {
                     model: User,
                     attributes: ['username']
