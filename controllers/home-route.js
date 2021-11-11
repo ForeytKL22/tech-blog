@@ -8,18 +8,6 @@ router.get('/', (req, res) => {
     Post.findAll({
       include: [
         Comment, User
-        // {
-        //   model: Comment,
-        //   attributes: ['id', 'comment_text'],
-        //   include: {
-        //     model: User,
-        //     attributes: ['username']
-        //   }
-        // },
-        // {
-        //   model: User,
-        //   attributes: ['username']
-        // }
       ]
     })
       .then(dbPostData => {
@@ -59,7 +47,7 @@ router.get('/', (req, res) => {
       include: [
         {
           model: Comment,
-          attributes: ['id', 'comment_text'],
+          attributes: ['id', 'comment_text', 'post_id', 'user_id', 'createdAt'],
           include: {
             model: User,
             attributes: ['username']

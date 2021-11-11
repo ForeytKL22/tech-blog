@@ -4,15 +4,30 @@ const withAuth = require('../utils/auth');
 
 // get all posts for dashboard
 router.get('/', withAuth, (req, res) => {
-    // console.log(req.session);
-    console.log("hit dashboard route")
-    console.log('======================');
+    console.log(req.session);
     Post.findAll({
         where: {
             user_id: req.session.user_id
         },
+        attributes: [
+            'id',
+            'post_body',
+            'title',
+            'createdAt',
+        ],
         include: [
-            Comment, User
+            {
+                model: Comment,
+                attribtues: ['id', 'comment_text', 'post_id', 'user_id', 'createdAt'],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            },
+            {
+                model: User,
+                attributes: ['username']
+            }
         ]
     })
         .then(dbPostData => {
