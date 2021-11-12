@@ -17,7 +17,7 @@
   * [Contact Information](#contact)
 
   ## Installation steps
-  Head over to the deployed Heroku link to create and account and get started!
+  Head over to the deployed Heroku link to create an account and get started!
 
   ## Instructions
   Create an account to start contributing!
